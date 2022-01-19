@@ -1,0 +1,13 @@
+#!/bin/bash
+
+HD_IMAGE=msdos620-hd.qcow2
+
+echo Creating a fresh MS-DOS 6.20 instance
+echo =====================================
+mkdir -p /tmp/images
+if [ ! -e /tmp/images/$HD_IMAGE ]
+then
+    qemu-img create -f qcow2 /tmp/images/$HD_IMAGE 100M
+fi
+
+qemu-system-i386 -m 4M -vnc :1 -monitor telnet:0.0.0.0:2323,server,nowait -boot adc /tmp/images/$HD_IMAGE
