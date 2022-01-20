@@ -45,18 +45,24 @@ Some wrapper shell scripts are included. They illustrate how to work with the co
 
 | qemu option | note                                   |
 |-------------|----------------------------------------|
-| -m 4M       | Memory: 4 MB (Megabytes) are fine for ancient DOS, if you want to be really generous, put 8M |
-| -vnc :1     | Screen is exposed via VNC on port 5901 |
-| -monitor telnet:0.0.0.0:2323,server,nowait | QEMU monitor is exposed via telnet on port 2323 |
-| -cdrom      | Emulate a CD drive, just in case |
-| -boot adc   | Set boot sequence to floppy, cdrom, hard disc |
+| `-m 4M`       | Memory: 4 MB (Megabytes) are fine for ancient DOS, if you want to be really generous, put 8M |
+| `-vnc :1`     | Screen is exposed via VNC on port 5901 |
+| `-monitor telnet:0.0.0.0:2323,server,nowait` | QEMU monitor is exposed via telnet on port 2323 |
+| `-cdrom`      | Emulate a CD drive, just in case |
+| `-boot adc`   | Set boot sequence to floppy, cdrom, hard disc |
 
 ## qemu monitor commands needed for bootstrapping
 
 | qemu command | used for                                   |
 |-------------|----------------------------------------|
-| change floppy0 <path-to-floppy-img> | virtually insert or change a floppy |
-| system_reset | re-boot the VM |
-| eject floppy0 | remove floppy from floppy drive |
+| `change floppy0 <path-to-floppy-img>` | virtually insert or change a floppy |
+| `system_reset` | re-boot the VM |
+| `eject floppy0` | remove floppy from floppy drive |
 
+### bootstrapping strategy
 
+1. start the container and qemu (e.g. using one of the helper scripts)
+2. connect to the screen via VNC
+3. insert the first install disk via the qemu monitor port
+4. reboot - wait for the install screen to come up
+5. follow the install sequence, change and eject floppies as directed by the installer
