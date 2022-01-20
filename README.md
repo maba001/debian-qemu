@@ -48,7 +48,6 @@ Some wrapper shell scripts are included. They illustrate how to work with the co
 | `-m 4M`       | Memory: 4 MB (Megabytes) are fine for ancient DOS, if you want to be really generous, put 8M |
 | `-vnc :1`     | Screen is exposed via VNC on port 5901 |
 | `-monitor telnet:0.0.0.0:2323,server,nowait` | QEMU monitor is exposed via telnet on port 2323 |
-| `-cdrom`      | Emulate a CD drive, just in case |
 | `-boot adc`   | Set boot sequence to floppy, cdrom, hard disc |
 
 ## qemu monitor commands needed for bootstrapping
