@@ -10,4 +10,9 @@ then
     qemu-img create -f qcow2 /tmp/images/$HD_IMAGE 100M
 fi
 
-qemu-system-i386 -m 4M -vnc :1 -monitor telnet:0.0.0.0:2323,server,nowait -boot adc /tmp/images/$HD_IMAGE
+# -L pc-bios -rtc base=localtime
+qemu-system-i386 -m 4M -vnc :1 \
+ -cpu pentium-v1 \
+ -monitor telnet:0.0.0.0:2323,server,nowait \
+ -rtc base=localtime \
+ -boot adc /tmp/images/$HD_IMAGE
