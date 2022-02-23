@@ -11,9 +11,9 @@ then
 fi
 
 # -L pc-bios -rtc base=localtime
-qemu-system-i386 -m 4M -vnc :1 -spice port=6001 \
+qemu-system-i386 -m 4M -vnc :1 -spice port=6001,tls-port=0,disable-ticketing,agent-mouse=on \
  -cpu pentium-v1 \
- -usb -usbdevice tablet \
+ -usb -device usb-tablet \
  -monitor telnet:0.0.0.0:2323,server,nowait \
  -rtc base=localtime \
  -boot adc /tmp/images/$HD_IMAGE
