@@ -11,7 +11,7 @@ then
 fi
 
 # -L pc-bios -rtc base=localtime
-qemu-system-i386 -m 4M -vnc :1 -spice port=6001,tls-port=0,disable-ticketing,agent-mouse=on \
+qemu-system-i386 -m 4M -vnc :1 -spice port=6001,tls-port=0,disable-ticketing=on,agent-mouse=on \
  -cpu pentium-v1 \
  -usb -device usb-tablet \
  -monitor telnet:0.0.0.0:2323,server,nowait \
