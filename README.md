@@ -1,4 +1,4 @@
-# debian-qemu (previously docker-msdos)
+# debian-qemu (previously debian-qemu)
 
 The original purpose was to implement a way to run **ancient** Intel x86 based operating systems inside an OCI container (docker / podman). In the meantime it has grown a little bit more generic. This is why the repository was renamed to 
 **debian-qemu**.
@@ -52,10 +52,10 @@ or
 
 Then tag the resulting image as you like
 
-    podman tag <image hash> docker-msdos:1.0
+    podman tag <image hash> debian-qemu:1.0
 or
 
-    docker tag <image hash> docker-msdos:1.0
+    docker tag <image hash> debian-qemu:1.0
 
 ## Usage
 
@@ -68,7 +68,7 @@ Example:
     -p 2323:2323 \
     -v /host-machine/some-floppy-path:/tmp/floppies \
     -v /host-machine/some-hdimg-path:/tmp/images \
-    docker-msdos:1.0
+    debian-qemu:1.0
 
 Some wrapper shell scripts are included. They illustrate how to work with the container. The GUI of the image / the screen is exposed via VNC on display :1 (= port 5901). The qemu monitor port is exposed via telnet on port 2323. Via the qemu monitor, you are able to control the virtual machine running inside the container.
 
@@ -80,6 +80,8 @@ Some wrapper shell scripts are included. They illustrate how to work with the co
 | `-vnc :1`     | Screen is exposed via VNC on port 5901 |
 | `-monitor telnet:0.0.0.0:2323,server,nowait` | QEMU monitor is exposed via telnet on port 2323 |
 | `-boot adc`   | Set boot sequence to floppy, cdrom, hard disc |
+
+additional QEMU command line parameters can be found in the example files under `/usr/local/bin`.
 
 ## qemu monitor commands needed for bootstrapping
 
