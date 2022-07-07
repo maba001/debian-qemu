@@ -1,0 +1,9 @@
+#!/bin/bash
+
+podman run -it --rm \
+ -p 5901:5901 -p 2323:2323 -p 6001:6001 \
+ -v /mnt/c/tmp/qemu-hd-images:/tmp/images \
+ -v /mnt/c/tmp/qemu-dos:/opt/floppies \
+ -v /mnt/c/tmp/external-mount:/opt/external-mount \
+ debian-qemu:bullseye-2022-07
+
