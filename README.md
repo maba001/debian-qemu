@@ -1,4 +1,4 @@
-# debian-qemu (previously debian-qemu)
+# debian-qemu
 
 The original purpose was to implement a way to run **ancient** Intel x86 based operating systems inside an OCI container (docker / podman). In the meantime it has grown a little bit more generic. This is why the repository was renamed to 
 **debian-qemu**.
@@ -19,7 +19,8 @@ Besides that the following Windows versions have been installed on the MS-DOS 6.
 - Microsoft Windows 3.1
 - Microsoft Windows 3.11
 
-In the meantime after giving it some thought, I also came up with a sister project called `alpine-qemu`.
+In the meantime after giving it some thought, I also came up with a 
+[sister project](https://github.com/maba001/alpine-qemu) called `alpine-qemu`.
 The idea was to have a smaller container footprint and to use newer versions of QEMU. Both containers work
 equally well and of course the QCOW2 files containing the actual OS, can be interchanged between the two.
 
@@ -34,7 +35,8 @@ would conclude that it works as well for all other Microsoft OSs and Windows ver
 Example files on how the `qemu` is started can be found under `/usr/local/bin` inside the container or
 under `srv/usr/local/bin` in the repository.
 
-This also eliminates the need for VirtualBox installations (for me personally). I don't need the VirtualBox UI and I am 
+This also eliminates the need for VirtualBox installations (for me personally). 
+I don't need the VirtualBox UI and I am 
 happy using a WSL2 based Linux distro to fire up all my virtualized OSs.
 
 ## Concept
@@ -98,3 +100,17 @@ additional QEMU command line parameters can be found in the example files under 
 3. insert the first install disk via the qemu monitor port
 4. reboot - wait for the install screen to come up
 5. follow the install sequence, change and eject floppies as directed by the installer
+
+## Alternatives
+
+### QEMU for Windows
+
+QEMU exists as a [Windows binary](https://qemu.weilnetz.de/w64/) as well. So of course you can simply use the
+helper scripts in here, transform them into Windows .BAT or .CMD files and run qemu natively on any modern
+Windows OS.
+
+### Hyper-V
+
+Since Windows 10, Hyper-V is another viable alternative to QEMU for Windows. In this case, you have to use
+a Hyper-V disk format like .VHD or .VHDX.
+
