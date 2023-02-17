@@ -1,5 +1,7 @@
 # debian-qemu
 
+[![Container Repository on Quay: Debian Qemu](https://quay.io/repository/mbayreut/debian-qemu/status "Container Repository on Quay: Debian Qemu")](https://quay.io/repository/mbayreut/debian-qemu)
+
 The original purpose was to implement a way to run **ancient** Intel x86 based operating systems inside an OCI container (docker / podman). In the meantime it has grown a little bit more generic. This is why the repository was renamed to 
 **debian-qemu**.
 
