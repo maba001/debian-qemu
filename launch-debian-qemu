@@ -5,5 +5,5 @@ podman run -it --rm \
  -v /mnt/c/tmp/qemu-hd-images:/tmp/images \
  -v /mnt/c/tmp/qemu-dos:/opt/floppies \
  -v /mnt/c/tmp/external-mount:/opt/external-mount \
- debian-qemu:bullseye-2023-01
+ quay.io/mbayreut/debian-qemu:bullseye-2023-04
 
