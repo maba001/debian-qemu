@@ -1,5 +1,7 @@
 FROM debian:bullseye-slim
 
+RUN sed -i 's|.*debian-security.*|# &|g' /etc/apt/sources.list
+
 RUN apt-get update \
  && apt-get upgrade -y \
  && apt-get install -y qemu-system-x86 telnet \
